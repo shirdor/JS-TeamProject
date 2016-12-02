@@ -23,7 +23,8 @@
 
 </head>
 
-<body id="page-top">
+<body onload="startApp()" id="page-top">
+
 
     <!-- Navigation -->
     <nav id="mainNav" class="navbar navbar-fixed-top">
@@ -49,7 +50,11 @@
                 </ul>
             </div>
         </div>
+        <div id="errorBox" class="errorBox">Error</div>
+        <div id="infoBox" class="infoBox">Info</div>
+
     </nav>
+
 
     <!-- Header -->
     <header>
@@ -307,29 +312,37 @@
 
     <!-- Contact Section -->
     <section id="contact">
-        <div class="container" style="text-align: center;">
-                    <form name="sentMessage" id="contactForm" novalidate style="text-align: center;">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="username" id="name" required data-validation-required-message="Please enter your username.">
-                                    <p class="help-block text-danger"></p>
-                                </div>
-                                <div class="form-group">
-                                    <input type="email" class="form-control" placeholder="password" id="email" required data-validation-required-message="Please enter your email password.">
-                                    <p class="help-block text-danger"></p>
-                                </div>
-                                <div class="form-group">
-                                    <input type="tel" class="form-control" placeholder="confirm password" id="phone" required data-validation-required-message="Please confirm your password.">
-                                    <p class="help-block text-danger"></p>
+        <!-- multistep form -->
+        <form id="msform">
 
-                            <div class="clearfix"></div>
-                            <div class="col-lg-12 text-xs-center">
-                                <div id="success"></div>
-                                <button type="submit" class="btn btn-xl" style="text-align:right">Register</button>
-                            </div>
-                        </div>
-                    </form>
+            <!-- fieldsets -->
+            <fieldset>
+                <h2 class="fs-title">Create Your Account</h2>
+                <h3 class="fs-subtitle">STEP #1</h3>
+                <input type="text" name="username" placeholder="Username" />
+                <input type="password" name="password" placeholder="Password" />
+                <input type="password" name="cpassword" placeholder="Confirm Password" />
+                <input type="button" name="next" class="next action-button" value="Next" />
+            </fieldset>
+            <fieldset>
+                <h2 class="fs-title">Social Profiles</h2>
+                <h3 class="fs-subtitle">Your presence on the social network</h3>
+                <input type="text" name="twitter" placeholder="Twitter" />
+                <input type="text" name="facebook" placeholder="Facebook" />
+                <input type="text" name="gplus" placeholder="Google Plus" />
+                <input type="button" name="next" class="next action-button" value="Next" />
+            </fieldset>
+            <fieldset>
+                <h2 class="fs-title">Personal Details</h2>
+                <h3 class="fs-subtitle">We will never sell it</h3>
+                <input type="text" name="fname" placeholder="First Name" />
+                <input type="text" name="lname" placeholder="Last Name" />
+                <input type="text" name="phone" placeholder="Phone" />
+                <textarea name="address" placeholder="Address"></textarea>
+                <input type="button" name="register" class="register action-button" value="Register" />
+            </fieldset>
+        </form>
 
-        </div>
     </section>
 
     <footer>
@@ -544,6 +557,7 @@
 
     <!-- jQuery -->
     <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="js/registration.js"></script>
 
     <!-- Tether -->
     <script src="vendor/tether/tether.min.js"></script>
