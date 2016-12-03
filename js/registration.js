@@ -1,5 +1,5 @@
 function startApp() {
-    sessionStorage.clear();
+    showBars();
     const baseUrl = 'https://baas.kinvey.com/';
     const appId = 'kid_HJ1-7ACGx';
     const appPass = '8370d0fa322f4ad5b9df1b787b3dad5b';
@@ -13,6 +13,9 @@ function startApp() {
     let arr = [];
     $(".next").click(buttonNext);
     $(".register").click(registerUser);
+    $('#btnLogin').click(loginClicked);
+    $('#logout-bar').click(logoutClicked);
+
     function buttonNext() {
         let field = $(this).parent().find('input');
         for (let el of field) {
@@ -56,7 +59,6 @@ function startApp() {
             }
             else {
                 arr.push($(el).val());
-
             }
         }
         let pass = arr[1];
@@ -90,34 +92,86 @@ function startApp() {
             showInfo('User registration successful.');
 
         }
-        function saveAuthInSession(userInfo) {
+    }
+    function saveAuthInSession(userInfo) {
 
-            let userAuth = userInfo._kmd.authtoken;
-            let userId = userInfo._id;
-            sessionStorage.setItem('authToken', userAuth);
-            sessionStorage.setItem('userId', userId);
-        }
-        function handleAjaxError(response) {
-            let errorMsg = JSON.stringify(response);
-            if (response.readyState === 0)
-                errorMsg = "Cannot connect due to network error.";
-            if (response.responseJSON &&
-                response.responseJSON.description)
-                errorMsg = response.responseJSON.description;
-            showError(errorMsg);
-        }
+        let userAuth = userInfo._kmd.authtoken;
+        let userId = userInfo._id;
+        sessionStorage.setItem('authToken', userAuth);
+        sessionStorage.setItem('userId', userId);
+    }
+    function loginClicked() {
 
-        function showError(errorMsg) {
-            $('#errorBox').text("Error: " + errorMsg);
-            $('#errorBox').show();
+        let userData = {
+            username: $('.login-form1 input[name=username]').val(),
+            password: $('.login-form1 input[name=password]').val()
+        };
 
+        $.ajax({
+            method: "POST",
+            url: baseUrl + "user/" + appId + "/login",
+            data: JSON.stringify(userData),
+            headers: kinveyAppAuthHeaders,
+            contentType: "application/json",
+            success: loginSuccess,
+            error: handleAjaxError
+        });
+
+        function loginSuccess(userInfo) {
+            saveAuthInSession(userInfo);
+            showInfo('User login successful.');
+            showBars();
         }
-        function showInfo(message) {
-            $('#infoBox').text(message);
-            $('#infoBox').show();
-            setTimeout(function () {
-                $('#infoBox').fadeOut();
-            }, 3000);
+    }
+
+
+    function logoutClicked() {
+        sessionStorage.clear();
+        showBars();
+        showInfo('Logout successful');
+    }
+
+    function handleAjaxError(response) {
+        let errorMsg = JSON.stringify(response);
+        if (response.readyState === 0)
+            errorMsg = "Cannot connect due to network error.";
+        if (response.responseJSON &&
+            response.responseJSON.description)
+            errorMsg = response.responseJSON.description;
+        showError(errorMsg);
+    }
+
+    function showError(errorMsg) {
+        $('#errorBox').text("Error: " + errorMsg);
+        $('#errorBox').show();
+        setTimeout(function () {
+            $('#infoBox').fadeOut();
+        }, 3000);
+
+    }
+    function showInfo(message) {
+        $('#infoBox').text(message);
+        $('#infoBox').show();
+        setTimeout(function () {
+            $('#infoBox').fadeOut();
+        }, 3000);
+    }
+
+    function showBars() {
+        if (sessionStorage.getItem('authToken')) {
+            // We have logged in user
+            $('#about-bar').show();
+            $("#themes-bar").show();
+            $('#login-bar').hide();
+            $("#register-bar").hide();
+            $("#logout-bar").show();
+        } else {
+            // No logged in user
+            $('#about-bar').show();
+            $('#login-bar').show();
+            $("#register-bar").show();
+            $("#themes-bar").hide();
+            $("#logout-bar").hide();
         }
     }
 }

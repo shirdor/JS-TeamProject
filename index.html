@@ -20,6 +20,7 @@
     <!-- Theme CSS -->
     <link href="css/agency.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/officialCSS.css">
+    <script src="js/jquery-3.1.1.min.js"></script>
 
 </head>
 
@@ -36,16 +37,19 @@
             <div class="collapse navbar-toggleable-sm" id="navbarResponsive">
                 <ul class="nav navbar-nav float-md-right">
                     <li class="nav-item">
-                        <a class="nav-link page-scroll" href="#services">Themes</a>
+                        <a class="nav-link page-scroll" id="themes-bar" href="#services">Themes</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link page-scroll" href="#team">About</a>
+                        <a class="nav-link page-scroll" id="about-bar" href="#team">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link page-scroll" href="#about">Login</a>
+                        <a class="nav-link page-scroll" id="login-bar" href="#about">Login</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link page-scroll" href="#contact">Register</a>
+                        <a class="nav-link page-scroll" id="register-bar" href="#contact">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll" id="logout-bar" href="#page-top">Logout</a>
                     </li>
                 </ul>
             </div>
@@ -284,10 +288,9 @@
                     <p class="message">Already registered? <a href="#">Sign In</a></p>
                 </form>
                 <form class="login-form1">
-                    <input type="text" placeholder="username"/>
-                    <input type="password" placeholder="password"/>
-                    <button>login</button>
-
+                    <input type="text" name="username" placeholder="username"/>
+                    <input type="password" name="password" placeholder="password"/>
+                    <button type="button" id="btnLogin">Login</button>
                 </form>
             </div>
         </div>
@@ -549,7 +552,6 @@
     </div>
 
     <!-- jQuery -->
-    <script src="vendor/jquery/jquery.min.js"></script>
     <script src="js/registration.js"></script>
 
     <!-- Tether -->
