@@ -113,13 +113,9 @@ footer {
     height: 235px;
 }
 .col-sm-4 {
-    left: -200px;
-}
-#specialForPinio {
-    margin-top: -485px;
-}
-#specialForPinio img {
-    margin-left: 950px;
+    left: 0px;
+    float: left;
+    width: 25%;
 }
 header {
     background-image: url('../img/header-test.png');
@@ -133,16 +129,20 @@ header {
     text-align: center;
     color: white;
 }
+.test {
+
+}
 .team-member-pinio {
-    margin-right: -2250px;
-    margin-top: -455px;
+    margin-top: -35px;
     text-align: center;
     margin-bottom: 50px;
 }
 .team-member-pinio img {
-    height: 270px;
+    height: 235px;
     margin: 0 auto;
     border: 7px solid white;
+    width: 235.03px;
+    margin-top: 35px;
 }
 .team-member-pinio h4 {
     margin-top: 25px;
@@ -152,7 +152,6 @@ header {
 .team-member-pinio p {
     margin-top: 0;
 }
-
 
 #msform {
     width: 400px;
@@ -277,5 +276,44 @@ header {
     padding: 15px;
     transition: .5s ease-in;
 }
-
-
+.our-amazing-team {
+    text-align: center;
+    color: #222;
+    font-style: italic;
+    font-size: 45px;
+    margin-top: -80px;
+    margin-bottom: 50px;
+}
+.team-letter {
+    margin-top: 50px;
+    margin-left: 80px;
+    margin-bottom: -120px;
+    font-size: 100px;
+    color: #fed136;
+}
+.team-letter-vanto {
+    margin-top: 50px;
+    margin-left: 115px;
+    margin-bottom: -120px;
+    font-size: 100px;
+    color: #fed136;
+}
+.team-letter-pinio {
+    margin-top: 50px;
+    margin-left: 100px;
+    margin-bottom: -120px;
+    font-size: 100px;
+    color: #fed136;
+}
+.team-letter-lapeto {
+    margin-top: 50px;
+    margin-left: 100px;
+    margin-bottom: -120px;
+    font-size: 100px;
+    color: #fed136;
+}
+section h2.section-heading {
+    font-size: 40px;
+    margin-top: 160px;
+    margin-bottom: -80px
+}
