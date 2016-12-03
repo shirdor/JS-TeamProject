@@ -22,6 +22,8 @@
     <link rel="stylesheet" href="css/officialCSS.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
+    <script src="js/jquery-3.1.1.min.js"></script>
+
 </head>
 
 <body onload="startApp()" id="page-top">
@@ -37,16 +39,19 @@
             <div class="collapse navbar-toggleable-sm" id="navbarResponsive">
                 <ul class="nav navbar-nav float-md-right">
                     <li class="nav-item">
-                        <a class="nav-link page-scroll" href="#services">Themes</a>
+                        <a class="nav-link page-scroll" id="themes-bar" href="#services">Themes</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link page-scroll" href="#team">About</a>
+                        <a class="nav-link page-scroll" id="about-bar" href="#team">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link page-scroll" href="#about">Login</a>
+                        <a class="nav-link page-scroll" id="login-bar" href="#about">Login</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link page-scroll" href="#contact">Register</a>
+                        <a class="nav-link page-scroll" id="register-bar" href="#contact">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll" id="logout-bar" href="#page-top">Logout</a>
                     </li>
                 </ul>
             </div>
@@ -105,11 +110,12 @@
     <!-- Team Section -->
     <section id="team" class="bg-light-gray">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-xs-center">
-                    <h2 class="section-heading">Our Amazing Team</h2>
+            <div>
+                <div class="our-amazing-team">
+                    <h2 class="our-amazing-team">Our Amazing Team</h2>
                 </div>
             </div>
+
             <div class="row">
                 <div class="col-sm-4">
                     <div class="team-member">
@@ -117,14 +123,13 @@
                         <h4>Martin Atanasov</h4>
                         <p class="text-muted">Lead Designer</p>
                         <ul class="list-inline social-buttons">
-                            <li class="list-inline-item"><a href="#"><i class="fa fa-twitter"></i></a>
+                            <li class="list-inline-item"><a target="_blank" href="https://www.facebook.com/profile.php?id=100001991788015"><i class="fa fa-facebook"></i></a>
                             </li>
-                            <li class="list-inline-item"><a href="#"><i class="fa fa-facebook"></i></a>
-                            </li>
-                            <li class="list-inline-item"><a href="#"><i class="fa fa-linkedin"></i></a>
+                            <li class="list-inline-item"><a target="_blank" href="https://mail.google.com/mail/u/0/#inbox?compose=158c46c8b27658a4"><i class="fa fa-envelope-o"></i></a>
                             </li>
                         </ul>
                     </div>
+                    <div class="team-letter">M</div>
                 </div>
                 <div class="col-sm-4">
                     <div class="team-member">
@@ -132,14 +137,12 @@
                         <h4>Antonio Buyukliev</h4>
                         <p class="text-muted">Lead Marketer</p>
                         <ul class="list-inline social-buttons">
-                            <li class="list-inline-item"><a href="#"><i class="fa fa-twitter"></i></a>
-                            </li>
-                            <li class="list-inline-item"><a href="#"><i class="fa fa-facebook"></i></a>
-                            </li>
-                            <li class="list-inline-item"><a href="#"><i class="fa fa-linkedin"></i></a>
+                            <li class="list-inline-item"><a target="_blank" href="https://www.facebook.com/antoniobuyukliev"><i class="fa fa-facebook"></i></a></li>
+                            <li class="list-inline-item"><a target="_blank" href="https://mail.google.com/mail/u/0/#inbox?compose=158c46d434f7e990"><i class="fa fa-envelope-o"></i></a>
                             </li>
                         </ul>
                     </div>
+                    <div class="team-letter-lapeto">A</div>
                 </div>
                 <div class="col-sm-4">
                     <div class="team-member">
@@ -147,31 +150,33 @@
                         <h4>Ivan Stoyanov</h4>
                         <p class="text-muted">Lead Developer</p>
                         <ul class="list-inline social-buttons">
-                            <li class="list-inline-item"><a href="#"><i class="fa fa-twitter"></i></a>
+                            <li class="list-inline-item"><a target="_blank" href="https://www.facebook.com/ivan.stoyanov.560"><i class="fa fa-facebook"></i></a>
                             </li>
-                            <li class="list-inline-item"><a href="#"><i class="fa fa-facebook"></i></a>
-                            </li>
-                            <li class="list-inline-item"><a href="#"><i class="fa fa-linkedin"></i></a>
+                            <li class="list-inline-item"><a target=<a href="https://mail.google.com/mail/u/0/#inbox?compose=158c473af3441dd1"><i class="fa fa-envelope-o"></i></a>
                             </li>
                         </ul>
                     </div>
+                    <div class="team-letter-vanto">I</div>
                 </div>
                 <div class="col-sm-4">
-                    <div class="team-member-pinio">
-                        <img src="img/team/pinio.jpg" class="img-fluid rounded-circle" alt="">
+                    <div class="team-member-pinio team-member">
+                        <img src="img/team/pinio3.jpg" class="img-fluid rounded-circle" alt="">
                         <h4>Konstantin Filosofov</h4>
                         <p class="text-muted">Lead Developer</p>
                         <ul class="list-inline social-buttons">
-                            <li class="list-inline-item"><a href="#"><i class="fa fa-twitter"></i></a>
+                            <li class="list-inline-item"><a target="_blank" href="https://www.facebook.com/konstantin.filosofov"><i class="fa fa-facebook"></i></a>
                             </li>
-                            <li class="list-inline-item"><a href="#"><i class="fa fa-facebook"></i></a>
-                            </li>
-                            <li class="list-inline-item"><a href="#"><i class="fa fa-linkedin"></i></a>
+                            <li class="list-inline-item"><a target="_blank" href="imeila na pinio"><i class="fa fa-envelope-o"></i></a>
                             </li>
                         </ul>
                     </div>
+                    <div class="team-letter-pinio">K</div>
                 </div>
-
+            </div>
+            <div class="row">
+                <div class="col-lg-12 text-xs-center">
+                    <h2 class="section-heading">Created a website for teenagers, where they can share problems, hobbies, interests and не мога да го изммисля</h2>
+                </div>
             </div>
         </div>
     </section>
@@ -277,11 +282,17 @@
     <section id="about">
         <div class="login-page1" >
             <div class="form1">
-                <form class="login-form-1">
-                    <input type="text" placeholder="username"/>
+                <form class="register-form">
+                    <input type="text" placeholder="name"/>
                     <input type="password" placeholder="password"/>
-                    <button>login</button>
-
+                    <input type="text" placeholder="email address"/>
+                    <button>create</button>
+                    <p class="message">Already registered? <a href="#">Sign In</a></p>
+                </form>
+                <form class="login-form1">
+                    <input type="text" name="username" placeholder="username"/>
+                    <input type="password" name="password" placeholder="password"/>
+                    <button type="button" id="btnLogin">Login</button>
                 </form>
             </div>
         </div>
@@ -608,7 +619,6 @@
     </div>
 
     <!-- jQuery -->
-    <script src="vendor/jquery/jquery.min.js"></script>
     <script src="js/registration.js"></script>
 
     <!-- Tether -->
