@@ -277,5 +277,137 @@ header {
     padding: 15px;
     transition: .5s ease-in;
 }
+body{
+    padding-top:25px !important;
+}
+.stats {
+    text-align:center;
+    text-shadow:1px 1px 0px #fff;
+    margin-top:25px;
 
+}
+.stats li{
+    width:125px;
+}
+.stats span{
+    font-family:Helvetica;
+    font-weight:bold;
+    text-shadow:1px 1px 0px #fff;
+    font-size:4em;
 
+    display:block;
+    line-height:1em;
+}
+
+/* Large desktop */
+@media (min-width: 1200px) {
+}
+
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) {
+}
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {
+    .profile img{
+        width:75px;
+    }
+    .profile h2{
+        font-size:1.7em;
+    }
+    .stats span{
+        font-size: 2em;
+    }
+}
+
+/* Landscape phones and down */
+@media (max-width: 480px) {
+}
+.form1 {
+    position: relative;
+    z-index: 1;
+    max-width: 360px;
+    margin: 0 auto 100px;
+    padding: 45px;
+    text-align: center;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+.form1 input {
+    font-family: "Roboto", sans-serif;
+    outline: 0;
+    background: #DDD;
+    width: 100%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+.form1 button {
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    background: #4CAF50;
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 14px;
+
+    cursor: pointer;
+}
+.form1 button:hover,.form button:active,.form button:focus {
+    background: #43A047;
+}
+#profile{
+    background-image:url("../img/profile-background.jpg");
+}
+.well{min-height:20px;padding:19px;margin-bottom:20px;background-color:#f5f5f5;border:1px solid #e3e3e3;-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px;-webkit-box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.05);-moz-box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.05);box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.05);}
+.well blockquote{border-color:#ddd;border-color:rgba(0, 0, 0, 0.15);}
+.well-large{padding:24px;-webkit-border-radius:6px;-moz-border-radius:6px;border-radius:6px;}
+.well-small{padding:9px;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;}
+@media (min-width:768px) and (max-width:979px){.row{margin-left:-20px;*zoom:1;}
+.row-fluid .controls-row [class*="span"]+[class*="span"]{margin-left:2.7624309392265194%;}
+ input.span1,textarea.span1,.uneditable-input.span1{width:28px;}}
+ .row-fluid [class*="span"]{display:block;width:100%;min-height:30px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;float:left;margin-left:2.564102564102564%;*margin-left:2.5109110747408616%;}
+.row-fluid [class*="span"]:first-child{margin-left:0;}
+.row-fluid .span6{width:48.717948717948715%;*width:48.664757228587014%;}
+.row-fluid .span4{margin-top:-25px;width:31.623931623931625%;*width:31.570740134569924%;}
+.row-fluid .span2{width:14.52991452991453%;*width:14.476723040552828%;}
+ul,ol{padding:0;margin:0 0 10px 25px;}
+ul.unstyled,ol.unstyled{margin-left:0;list-style:none;}
+ul.inline,ol.inline{margin-top:-7px;margin-left:0;list-style:none;}ul.inline>li,ol.inline>li{display:inline-block;*display:inline;*zoom:1;padding-left:5px;padding-right:5px;}
+
+.icon-phone:before {
+    content: "\f095";
+}
+.icon-phone-sign:before {
+    content: "\f098";
+}
+[class^="icon-"],
+[class*=" icon-"] {
+    font-family: FontAwesome;
+    font-weight: normal;
+    font-style: normal;
+    text-decoration: inherit;
+    -webkit-font-smoothing: antialiased;
+    *margin-right: .3em;
+}
+
+/* increased font size for icon-large */
+[class^="icon-"].icon-fixed-width,
+[class*=" icon-"].icon-fixed-width {
+    display: inline-block;
+    width: 1.1428571428571428em;
+    text-align: right;
+    padding-right: 0.2857142857142857em;
+}
+.icon-envelope-alt:before {
+    content: "\f003";
+}
+.icon-envelope:before {
+    content: "\f0e0";
+}
+.icon-globe:before {
+    content: "\f0ac";
+}

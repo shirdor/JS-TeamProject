@@ -5,7 +5,7 @@
     padding: 8% 0 0;
     margin: auto;
 }
-.form1 {
+.form-login-1 {
     position: relative;
     z-index: 1;
     max-width: 360px;
@@ -14,7 +14,7 @@
     text-align: center;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
-.form1 input {
+.form-login-1 input {
     font-family: "Roboto", sans-serif;
     outline: 0;
     background: #DDD;
@@ -25,7 +25,7 @@
     box-sizing: border-box;
     font-size: 14px;
 }
-.form1 button {
+.form-login-1 button {
     font-family: "Roboto", sans-serif;
     text-transform: uppercase;
     outline: 0;
@@ -38,7 +38,7 @@
 
     cursor: pointer;
 }
-.form1 button:hover,.form button:active,.form button:focus {
+.form-login-1 button:hover,.form button:active,.form button:focus {
     background: #43A047;
 }
 .form1 .message {
