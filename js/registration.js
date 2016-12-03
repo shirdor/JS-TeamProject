@@ -20,6 +20,7 @@ function startApp() {
             }
             else {
                 arr.push($(el).val());
+
             }
         }
 
@@ -49,14 +50,25 @@ function startApp() {
 
 
     function registerUser() {
-        console.log(arr);
+        let field = $(this).parent().find('input');
+        for (let el of field) {
+            if ($(el).val() == 'Next' || $(el).val() == 'Register') {
+            }
+            else {
+                arr.push($(el).val());
+
+            }
+        }
         let pass = arr[1];
         let passConfirmed = arr[2];
-
-        if (pass == passConfirmed) {
+        if (pass == passConfirmed && pass!="" && pass!=undefined && passConfirmed!="" && passConfirmed!=undefined ) {
             let userData = {
-                username: arr[0],
-                password: pass
+                "username": arr[0],
+                "password": pass,
+                "full_name": arr[3],
+                "phone_number":arr[4],
+                "facebook":arr[5],
+                "e-mail" :arr[6]
             };
             $.ajax({
                 method: "POST",
@@ -67,13 +79,24 @@ function startApp() {
                 error: handleAjaxError
             });
         }
+        else if(arr.filter(e=>e=='').length!=0){
+            showError("You have not filled all boxes. Please reload and try again.");
+        }
         else {
-            showError("You have two different passwords. Please reload the page and try again");
+            showError("You have two different passwords. Please reload and try again.");
         }
-        function registerSuccess() {
-            showInfo("Registration Successful")
-        }
+        function registerSuccess(userInfo) {
+            saveAuthInSession(userInfo);
+            showInfo('User registration successful.');
 
+        }
+        function saveAuthInSession(userInfo) {
+
+            let userAuth = userInfo._kmd.authtoken;
+            let userId = userInfo._id;
+            sessionStorage.setItem('authToken', userAuth);
+            sessionStorage.setItem('userId', userId);
+        }
         function handleAjaxError(response) {
             let errorMsg = JSON.stringify(response);
             if (response.readyState === 0)
