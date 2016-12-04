@@ -131,6 +131,8 @@ function startApp() {
 
     function logoutClicked() {
         sessionStorage.clear();
+        $('.login-form1 input[name=username]').val('');
+        $('.login-form1 input[name=password]').val('');
         showBars();
         showInfo('Logout successful');
     }
@@ -164,15 +166,22 @@ function startApp() {
     function showBars() {
         if (sessionStorage.getItem('authToken')) {
             // We have logged in user
+            $('#about').hide();
+            $('#contact').hide();
             $('#about-bar').show();
             $("#themes-bar").show();
             $('#login-bar').hide();
             $("#register-bar").hide();
             $("#logout-bar").show();
+            $('#profile').show();
             $('#about').hide();
             $('#contact').hide();
         } else {
             // No logged in user
+            $('#about').show();
+            $('#contact').show();
+            $('#profile').hide();
+            $('#services').hide();
             $('#about-bar').show();
             $('#login-bar').show();
             $("#register-bar").show();
