@@ -176,6 +176,7 @@ function startApp() {
             $('#profile').show();
             $('#about').hide();
             $('#contact').hide();
+            $('#forum').show();
         } else {
             // No logged in user
             $('#about').show();
@@ -187,6 +188,8 @@ function startApp() {
             $("#register-bar").show();
             $("#themes-bar").hide();
             $("#logout-bar").hide();
+            $('#forum').hide();
+
         }
     }
     function editIsNeeded() {

@@ -451,29 +451,57 @@ section h2.section-heading {
     margin-top: 160px;
     margin-bottom: -80px
 }
-#forumQuestions{
-    margin-left: 100px;
-    border: solid 2px #000000;
-    overflow-y: scroll;
-    display: inline-block;
-    height: 400px;
-    width: 700px;
+#forum{
+    background-image: url("../img/forum_img.jpg");
+}
+#themeHeader{
+    color: antiquewhite;
+    text-align: center;
+    font-size: 38px;
+    font-family: "Helvetica", serif;
+    margin-top: 10px;
+}
+#questionsHeader{
+    color: antiquewhite;
+    font-size: 38px;
+    font-family: "Helvetica", serif;
+    margin-top: 10px;
+    text-align: center;
 }
 #themes{
-    margin-left: 90px;
+    margin-top: 80px;
+    margin-left: 100px;
     border: solid 2px #000000;
     display: inline-block;
     overflow-y: hidden;
     height: 400px;
     width: 250px;
+    box-shadow: 10px 20px 50px rgba(0,0,0,.9);
+    background: black;
+}
+.theme{
+    font-size: 33px;
+    text-align: center;
+    margin: 10px;
+    color: royalblue;
+}
+#forumQuestions{
+    margin-left: 120px;
+    border: solid 2px #000000;
+    overflow-y: auto;
+    display: inline-block;
+    height: 400px;
+    width: 770px;
+    box-shadow: 10px 20px 50px rgba(0,0,0,.9);
+    background: black;
+}
+.question{
+    font-size: 27px;
+    margin-left:10px;
+    margin-top:5px;
+    margin-bottom:5px;
+}
 
-}
-#themeHeader{
-    text-align: center;
-}
-#themeHeader{
-    text-align: center;
-}
 h2{
     font-size: 2rem;
     margin-top: 20px;
