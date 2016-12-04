@@ -366,9 +366,9 @@ body{
 .well-large{padding:24px;-webkit-border-radius:6px;-moz-border-radius:6px;border-radius:6px;}
 .well-small{padding:9px;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;}
 @media (min-width:768px) and (max-width:979px){.row{margin-left:-20px;*zoom:1;}
-.row-fluid .controls-row [class*="span"]+[class*="span"]{margin-left:2.7624309392265194%;}
- input.span1,textarea.span1,.uneditable-input.span1{width:28px;}}
- .row-fluid [class*="span"]{display:block;width:100%;min-height:30px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;float:left;margin-left:2.564102564102564%;*margin-left:2.5109110747408616%;}
+    .row-fluid .controls-row [class*="span"]+[class*="span"]{margin-left:2.7624309392265194%;}
+    input.span1,textarea.span1,.uneditable-input.span1{width:28px;}}
+.row-fluid [class*="span"]{display:block;width:100%;min-height:30px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;float:left;margin-left:2.564102564102564%;*margin-left:2.5109110747408616%;}
 .row-fluid [class*="span"]:first-child{margin-left:0;}
 .row-fluid .span6{width:48.717948717948715%;*width:48.664757228587014%;}
 .row-fluid .span4{margin-top:-25px;width:31.623931623931625%;*width:31.570740134569924%;}
@@ -451,7 +451,7 @@ section h2.section-heading {
     margin-top: 160px;
     margin-bottom: -80px
 }
-#questions{
+#forumQuestions{
     margin-left: 100px;
     border: solid 2px #000000;
     overflow-y: scroll;
@@ -474,3 +474,11 @@ section h2.section-heading {
 #themeHeader{
     text-align: center;
 }
+h2{
+    font-size: 2rem;
+    margin-top: 20px;
+}.glyphicon-pencil:before{
+     content:"\270f";
+    color: #2aabd2;
+ }
+
