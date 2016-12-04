@@ -106,6 +106,9 @@ function startApp() {
             username: $('.login-form1 input[name=username]').val(),
             password: $('.login-form1 input[name=password]').val()
         };
+        sessionStorage.setItem("username", userData.username);
+        sessionStorage.setItem("pass", userData.password);
+        $('#forum').show();
 
         $.ajax({
             method: "POST",

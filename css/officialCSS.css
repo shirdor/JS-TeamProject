@@ -451,5 +451,26 @@ section h2.section-heading {
     margin-top: 160px;
     margin-bottom: -80px
 }
+#questions{
+    margin-left: 100px;
+    border: solid 2px #000000;
+    overflow-y: scroll;
+    display: inline-block;
+    height: 400px;
+    width: 700px;
+}
+#themes{
+    margin-left: 90px;
+    border: solid 2px #000000;
+    display: inline-block;
+    overflow-y: hidden;
+    height: 400px;
+    width: 250px;
 
-
+}
+#themeHeader{
+    text-align: center;
+}
+#themeHeader{
+    text-align: center;
+}
