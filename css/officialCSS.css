@@ -420,14 +420,14 @@ ul.inline,ol.inline{margin-top:-7px;margin-left:0;list-style:none;}ul.inline>li,
 }
 .team-letter {
     margin-top: 50px;
-    margin-left: 80px;
+    margin-left: 90px;
     margin-bottom: -120px;
     font-size: 100px;
     color: #fed136;
 }
 .team-letter-vanto {
     margin-top: 50px;
-    margin-left: 115px;
+    margin-left: 120px;
     margin-bottom: -120px;
     font-size: 100px;
     color: #fed136;
@@ -456,5 +456,11 @@ h2{
     margin-top: 20px;
 }.glyphicon-pencil:before{
      content:"\270f";
-    color: #2aabd2;
+     color: #2aabd2;
+ }
+ #all-bars {
+     margin-right: 430px;
+ }
+ #logout-bar {
+
  }
