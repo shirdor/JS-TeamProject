@@ -24,13 +24,11 @@ function startApp() {
             }
             else {
                 arr.push($(el).val());
-
             }
         }
 
         current = $(this).parent();
         next = $(this).parent().next();
-
 
         next.show();
         current.animate({opacity: 0}, {
@@ -109,7 +107,6 @@ function startApp() {
         };
         sessionStorage.setItem("username", userData.username);
         sessionStorage.setItem("pass", userData.password);
-        $('#forum').show();
 
         $.ajax({
             method: "POST",
@@ -168,15 +165,14 @@ function startApp() {
             // We have logged in user
             $('#about').hide();
             $('#contact').hide();
+            $('#profile').show();
             $('#about-bar').show();
-            $("#themes-bar").show();
             $('#login-bar').hide();
             $("#register-bar").hide();
+            $("#themes-bar").show();
             $("#logout-bar").show();
-            $('#profile').show();
-            $('#about').hide();
-            $('#contact').hide();
             $('#forum').show();
+            $('#profile-bar').show();
         } else {
             // No logged in user
             $('#about').show();
@@ -189,7 +185,7 @@ function startApp() {
             $("#themes-bar").hide();
             $("#logout-bar").hide();
             $('#forum').hide();
-
+            $('#profile-bar').hide();
         }
     }
     function editIsNeeded() {

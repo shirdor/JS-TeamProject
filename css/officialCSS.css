@@ -452,7 +452,7 @@ section h2.section-heading {
     margin-bottom: -80px
 }
 #forum{
-    background-image: url("../img/forum_img.jpg");
+    background-image: url("../img/forumBackground.jpg");
 }
 #themeHeader{
     color: antiquewhite;
@@ -473,11 +473,11 @@ section h2.section-heading {
     margin-left: 100px;
     border: solid 2px #000000;
     display: inline-block;
-    overflow-y: hidden;
+    overflow-y: auto;
     height: 400px;
     width: 250px;
     box-shadow: 10px 20px 50px rgba(0,0,0,.9);
-    background: black;
+    background: #000000;
 }
 .theme{
     font-size: 33px;
