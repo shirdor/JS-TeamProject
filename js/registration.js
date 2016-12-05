@@ -93,8 +93,11 @@ function startApp() {
             showError("You have two different passwords. Please reload and try again.");
         }
         function registerSuccess() {
-            showInfo('User registration successful. Please login');
-
+            showInfo('User registration successful.');
+            let regUsername = $('.registerUsername').val();
+            let regPassword = $('.registerPassword').val();
+            //console.log(regUsername);
+            loginClicked(regUsername,regPassword);
         }
     }
     function saveAuthInSession(userInfo) {
@@ -104,12 +107,22 @@ function startApp() {
         sessionStorage.setItem('authToken', userAuth);
         sessionStorage.setItem('userId', userId);
     }
-    function loginClicked() {
-
-        let userData = {
-            username: $('.login-form1 input[name=username]').val(),
-            password: $('.login-form1 input[name=password]').val()
-        };
+    function loginClicked(param1, param2) {
+        let userData;
+        if(param1&&param2){
+            userData = {
+                username: param1,
+                password: param2
+            };
+            //console.log('asam bonak');
+        }
+        else {
+            userData = {
+                username: $('.login-form1 input[name=username]').val(),
+                password: $('.login-form1 input[name=password]').val()
+            };
+            //console.log('asam 1');
+        }
         sessionStorage.setItem("username", userData.username);
         sessionStorage.setItem("pass", userData.password);
 
