@@ -24,7 +24,9 @@ function startApp() {
                     let div = $('<a href="#">');
                     div.addClass("theme");
                     div.text(theme.title);
-                    $('#themes').append(div).append($('<br>'));
+                    if(div.text()){
+                        $('#themes').append(div).append($('<br>'));
+                    }
                 }
             });
             $.ajax({
@@ -192,7 +194,9 @@ function startApp() {
                     let div = $('<a href="#">');
                     div.addClass("theme");
                     div.text(theme.title);
-                    $('#themes').append(div).append($('<br>'));
+                    if(div.text()){
+                        $('#themes').append(div).append($('<br>'));
+                    }
                 }
             });
             $.ajax({
