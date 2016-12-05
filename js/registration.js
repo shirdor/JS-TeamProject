@@ -1,5 +1,5 @@
 function startApp() {
-    showBars();
+    
     const baseUrl = 'https://baas.kinvey.com/';
     const appId = 'kid_HJ1-7ACGx';
     const appPass = '8370d0fa322f4ad5b9df1b787b3dad5b';
@@ -8,6 +8,43 @@ function startApp() {
         btoa(appId + ":" + appPass)
     };
 
+    if(sessionStorage.username){
+            const baseUrl = "https://baas.kinvey.com/appdata/kid_HJ1-7ACGx/";
+            const kinveyAppAuthHeaders = {
+                'Authorization': "Basic " +
+                btoa(sessionStorage.username + ":" + sessionStorage.pass)
+            };
+            $.ajax({
+                method: "GET",
+                url: baseUrl +"themes",
+                headers: kinveyAppAuthHeaders
+            }).then(function (result) {
+                $('#themes').find(".theme").remove();
+                for(let theme of result){
+                    let div = $('<a href="#">');
+                    div.addClass("theme");
+                    div.text(theme.title);
+                    $('#themes').append(div).append($('<br>'));
+                }
+            });
+            $.ajax({
+                method: "GET",
+                url: baseUrl + "questions",
+                headers: kinveyAppAuthHeaders,
+            }).then(function (result) {
+                $('#forumQuestions').find(".question").remove();
+                for(let question of result){
+                    let div = $('<div>');
+                    div.addClass("question");
+                    div.text(question.title);
+                    $('#forumQuestions').append(div);
+                }
+            })
+
+    }
+
+    showBars();
+    
     let current, next;
     let left, opacity, scale;
     let arr = [];
@@ -123,8 +160,46 @@ function startApp() {
             showInfo('User login successful.');
             showBars();
         }
+
+        if(sessionStorage.username){
+            const baseUrl = "https://baas.kinvey.com/appdata/kid_HJ1-7ACGx/";
+            const kinveyAppAuthHeaders = {
+                'Authorization': "Basic " +
+                btoa(sessionStorage.username + ":" + sessionStorage.pass)
+            };
+            $.ajax({
+                method: "GET",
+                url: baseUrl +"themes",
+                headers: kinveyAppAuthHeaders
+            }).then(function (result) {
+                $('#themes').find(".theme").remove();
+                for(let theme of result){
+                    let div = $('<a href="#">');
+                    div.addClass("theme");
+                    div.text(theme.title);
+                    $('#themes').append(div).append($('<br>'));
+                }
+            });
+            $.ajax({
+                method: "GET",
+                url: baseUrl + "questions",
+                headers: kinveyAppAuthHeaders,
+            }).then(function (result) {
+                $('#forumQuestions').find(".question").remove();
+                for(let question of result){
+                    let div = $('<div>');
+                    div.addClass("question");
+                    div.text(question.title);
+                    $('#forumQuestions').append(div);
+                }
+            })
+
+        }
+
+        
     }
 
+    
 
     function logoutClicked() {
         sessionStorage.clear();
