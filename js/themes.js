@@ -12,9 +12,11 @@ function getThemes() {
         $('#themes').find(".theme").remove();
         $('#themes').find("br").remove();
         for(let theme of result){
-            let div = $('<a href="#themes">');
+            let div = $('<a href="#questionsAndComments">');
             div.addClass("theme");
+            div.attr('id', theme.title);
             div.text(theme.title);
+            div.attr('onclick', test());
             $('#themes').append(div).append($('<br>'));
         }
     });

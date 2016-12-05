@@ -13,7 +13,7 @@ function startApp() {
     }
 
     showBars();
-    
+
     let current, next;
     let left, opacity, scale;
     let arr = [];
@@ -101,7 +101,6 @@ function startApp() {
 
         let userAuth = userInfo._kmd.authtoken;
         let userId = userInfo._id;
-        console.log(userAuth);
         sessionStorage.setItem('authToken', userAuth);
         sessionStorage.setItem('userId', userId);
     }
