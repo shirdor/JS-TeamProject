@@ -144,12 +144,10 @@ function startApp() {
             profileUpdate(userInfo);
             showBars();
         }
-
-        if(sessionStorage.username){
             getThemes()
+        
 
-
-        }
+        
 
         
     }

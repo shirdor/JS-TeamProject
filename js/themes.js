@@ -16,7 +16,10 @@ function getThemes() {
             div.addClass("theme");
             div.attr('id', theme.title);
             div.text(theme.title);
-            div.attr('onclick', test());
+            div.click(function () {
+                        $('#questionsAndCommentsHeader').text(`${theme.title}`);
+                    }
+            );
             $('#themes').append(div).append($('<br>'));
         }
     });
