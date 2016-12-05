@@ -15,8 +15,6 @@ function startApp() {
     $(".register").click(registerUser);
     $('#btnLogin').click(loginClicked);
     $('#logout-bar').click(logoutClicked);
-    $('.glyphicon-pencil').click(editIsNeeded);
-
     function buttonNext() {
         let field = $(this).parent().find('input');
         for (let el of field) {
@@ -69,7 +67,9 @@ function startApp() {
                 "full_name": arr[3],
                 "phone_number":arr[4],
                 "facebook":arr[5],
-                "e-mail" :arr[6]
+                "e_mail" :arr[6],
+                "comment":0,
+                "question":0
             };
             $.ajax({
                 method: "POST",
@@ -86,9 +86,8 @@ function startApp() {
         else {
             showError("You have two different passwords. Please reload and try again.");
         }
-        function registerSuccess(userInfo) {
-            saveAuthInSession(userInfo);
-            showInfo('User registration successful.');
+        function registerSuccess() {
+            showInfo('User registration successful. Please login');
 
         }
     }
@@ -96,6 +95,7 @@ function startApp() {
 
         let userAuth = userInfo._kmd.authtoken;
         let userId = userInfo._id;
+        console.log(userAuth);
         sessionStorage.setItem('authToken', userAuth);
         sessionStorage.setItem('userId', userId);
     }
@@ -119,12 +119,26 @@ function startApp() {
         });
 
         function loginSuccess(userInfo) {
+
             saveAuthInSession(userInfo);
             showInfo('User login successful.');
+            profileUpdate(userInfo);
             showBars();
         }
     }
+    function x() {
+        console.log(sessionStorage.getItem('userId'));
+        console.log(sessionStorage.getItem('authToken'));
 
+        $.ajax({
+            method: "GET",
+            url: "https://baas.kinvey.com/user/kid_HJ1-7ACGx/"+sessionStorage.getItem('userId'),
+            headers: {'Authorization': 'Kinvey '+ sessionStorage.getItem('authToken')},
+            success: profileUpdate,
+            error: handleAjaxError
+        });
+
+    }
 
     function logoutClicked() {
         sessionStorage.clear();
@@ -173,6 +187,7 @@ function startApp() {
             $("#logout-bar").show();
             $('#forum').show();
             $('#profile-bar').show();
+            x();
         } else {
             // No logged in user
             $('#about').show();
@@ -188,5 +203,20 @@ function startApp() {
             $('#profile-bar').hide();
         }
     }
-
+    function profileUpdate(obj) {
+        let userName=obj.full_name;
+        let userPhone=obj.phone_number;
+        let userEmail=obj.e_mail;
+        let userFacebook=obj.facebook;
+        $('#zero').empty();
+        $('#zero').append($('<h2>').text(userName));
+        $('#one').empty();
+        $('#one').html('<i class="icon-phone"></i> '+userPhone);
+        $('#two').empty();
+        $('#two').html('<i class="icon-envelope"></i> '+userEmail);
+        $('#three').empty();
+        $('#three').html('<i class="icon-globe"></i> '+userFacebook);
+        $('#comments').text(obj.comment);
+        $('#questions').text(obj.question);
+    }
 }

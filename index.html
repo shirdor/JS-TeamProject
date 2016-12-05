@@ -51,12 +51,13 @@
                     <li class="nav-item">
                         <a class="nav-link page-scroll" id="register-bar" href="#contact">Register</a>
                     </li>
-                    <div class="nav-item">
-                        <a class="nav-link page-scroll" id="logout-bar" href="#page-top">Logout</a>
-                    </div>
-                    <div class="nav-item">
+                    <li class="nav-item">
                         <a class="nav-link page-scroll" id="profile-bar" href="#profile">Profile</a>
-                    </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll" id="logout-bar" href="#page-top">Logout</a>
+                    </li>
+
                 </ul>
             </div>
         </div>
@@ -336,17 +337,13 @@
                                 <img src="img/profile%20picture.png" width="125px" height="125px" class="img-polaroid"/>
                             </div>
                             <div class="span4">
-                                <div>
-                                    <h2>Jonnie Spratley</h2>
+                                <div id="zero">
+                                    <h2></h2>
                                 </div>
                                 <ul class="unstyled">
-                                    <li><i class="icon-phone"></i> 916-241-3613
-                                    </li>
-                                    <li><i class="icon-envelope"></i> jonniespratley@me.com
-                                    </li>
-                                    <li><i class="icon-globe"></i> http://jonniespratley.me
-
-                                    </li>
+                                    <li id="one"><i class="icon-phone"></i></li>
+                                    <li id="two"><i class="icon-envelope"></i></li>
+                                    <li id="three"><i class="icon-globe"></i></li>
 
                                 </ul>
                             </div>
@@ -376,8 +373,11 @@
                             <option value="e_mail">E-mail</option>
                             <option value="facebook_link">Facebook</option>
                         </select>
-                        <div>
+                        <div style="margin-top: 10px">
                             <input type="text" id="changes">
+                        </div>
+                        <div style="margin-top: 10px">
+                        <button type="button" id="edit">Edit</button>
                         </div>
                     </div>
                 </div>
