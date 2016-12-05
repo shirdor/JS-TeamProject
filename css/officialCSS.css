@@ -451,6 +451,7 @@ section h2.section-heading {
     margin-top: 160px;
     margin-bottom: -80px
 }
+/*-+-+-+-+-+-+-+-*/
 #forum{
     background-image: url("../img/forumBackground.jpg");
 }
@@ -500,7 +501,18 @@ section h2.section-heading {
 .question{
     font-size: 27px;
 }
-
+#questionsAndComments{
+    background: url("../img/forum_img.jpg");
+    height: 818px;
+}
+#questionsAndCommentsHeader{
+    text-align: center;
+    font-size: 50px;
+    color: white;
+    text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
+    top: 5px;;
+}
+/*-+-+-+-+-+-+-+-*/
 h2{
     font-size: 2rem;
     margin-top: 20px;
@@ -511,7 +523,20 @@ h2{
  #all-bars {
      margin-right: 430px;
  }
- #logout-bar {
-
- }
+.logout-nav-link{
+    text-decoration: none;
+    font-size: 90%;
+    padding: .75em 0;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    text-transform: uppercase;
+    font-weight: 400;
+    letter-spacing: 1px;
+    color: #fff;
+    padding: 1.2em .4em!important;
+    display: block;
+    box-sizing: inherit;
+}
+.logout-nav-link:hover{
+    text-decoration: none;
+}
 

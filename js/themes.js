@@ -1,4 +1,4 @@
-$('#themes-bar').click(function getThemes() {
+function getThemes() {
     const baseUrl = "https://baas.kinvey.com/appdata/kid_HJ1-7ACGx/";
     const kinveyAppAuthHeaders = {
         'Authorization': "Basic " +
@@ -10,10 +10,13 @@ $('#themes-bar').click(function getThemes() {
         headers: kinveyAppAuthHeaders
     }).then(function (result) {
         $('#themes').find(".theme").remove();
+        $('#themes').find("br").remove();
         for(let theme of result){
-            let div = $('<a href="#">');
+            let div = $('<a href="#questionsAndComments">');
             div.addClass("theme");
+            div.attr('id', theme.title);
             div.text(theme.title);
+            div.attr('onclick', test());
             $('#themes').append(div).append($('<br>'));
         }
     });
@@ -30,4 +33,4 @@ $('#themes-bar').click(function getThemes() {
             $('#forumQuestions').append(div);
         }
     })
-});
+}
