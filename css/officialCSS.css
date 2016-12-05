@@ -503,13 +503,14 @@ section h2.section-heading {
 }
 #questionsAndComments{
     background: url("../img/forum_img.jpg");
-    background-size: 100%;
+    height: 818px;
 }
 #questionsAndCommentsHeader{
     text-align: center;
-    font-size: 40pc;
+    font-size: 50px;
     color: white;
-    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
+    top: 5px;;
 }
 /*-+-+-+-+-+-+-+-*/
 h2{
