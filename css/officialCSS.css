@@ -511,7 +511,20 @@ h2{
  #all-bars {
      margin-right: 430px;
  }
- #logout-bar {
-
- }
+.logout-nav-link{
+    text-decoration: none;
+    font-size: 90%;
+    padding: .75em 0;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    text-transform: uppercase;
+    font-weight: 400;
+    letter-spacing: 1px;
+    color: #fff;
+    padding: 1.2em .4em!important;
+    display: block;
+    box-sizing: inherit;
+}
+.logout-nav-link:hover{
+    text-decoration: none;
+}
 
