@@ -146,10 +146,6 @@ function startApp() {
         }
             getThemes()
         
-
-        
-
-        
     }
     function x() {
 

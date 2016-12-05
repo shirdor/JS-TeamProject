@@ -12,12 +12,13 @@ function getThemes() {
         $('#themes').find(".theme").remove();
         $('#themes').find("br").remove();
         for(let theme of result){
-            let div = $('<a href="#questionsAndComments">');
+            let div = $('<a href="#forum">');
             div.addClass("theme");
             div.attr('id', theme.title);
             div.text(theme.title);
             div.click(function () {
-                        $('#questionsAndCommentsHeader').text(`${theme.title}`);
+                        $('#questionsHeader').text(`${theme.title}`);
+                    //    time to GET the questions from the datebase
                     }
             );
             $('#themes').append(div).append($('<br>'));
@@ -30,9 +31,15 @@ function getThemes() {
     }).then(function (result) {
         $('#forumQuestions').find(".question").remove();
         for(let question of result){
-            let div = $('<div>');
+            let div = $('<a href="#questionsAndComments">');
             div.addClass("question");
             div.text(question.title);
+            div.click(
+                function () {
+                    $('#questionsAndCommentsHeader').text(`${question.title}`);
+                    $('#questionsAndCommentsHeaderBody').text('asam laino');
+                }
+            );
             $('#forumQuestions').append(div);
         }
     })
