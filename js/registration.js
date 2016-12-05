@@ -9,44 +9,11 @@ function startApp() {
     };
 
     if(sessionStorage.username){
-            const baseUrl = "https://baas.kinvey.com/appdata/kid_HJ1-7ACGx/";
-            const kinveyAppAuthHeaders = {
-                'Authorization': "Basic " +
-                btoa(sessionStorage.username + ":" + sessionStorage.pass)
-            };
-            $.ajax({
-                method: "GET",
-                url: baseUrl +"themes",
-                headers: kinveyAppAuthHeaders
-            }).then(function (result) {
-                $('#themes').find(".theme").remove();
-                for(let theme of result){
-                    let div = $('<a href="#">');
-                    div.addClass("theme");
-                    div.text(theme.title);
-                    if(div.text()){
-                        $('#themes').append(div).append($('<br>'));
-                    }
-                }
-            });
-            $.ajax({
-                method: "GET",
-                url: baseUrl + "questions",
-                headers: kinveyAppAuthHeaders,
-            }).then(function (result) {
-                $('#forumQuestions').find(".question").remove();
-                for(let question of result){
-                    let div = $('<div>');
-                    div.addClass("question");
-                    div.text(question.title);
-                    $('#forumQuestions').append(div);
-                }
-            })
-
+        getThemes();
     }
 
     showBars();
-    
+
     let current, next;
     let left, opacity, scale;
     let arr = [];
@@ -54,6 +21,7 @@ function startApp() {
     $(".register").click(registerUser);
     $('#btnLogin').click(loginClicked);
     $('#logout-bar').click(logoutClicked);
+    $('#edit').click(editProfile);
     function buttonNext() {
         let field = $(this).parent().find('input');
         for (let el of field) {
@@ -137,7 +105,6 @@ function startApp() {
 
         let userAuth = userInfo._kmd.authtoken;
         let userId = userInfo._id;
-        console.log(userAuth);
         sessionStorage.setItem('authToken', userAuth);
         sessionStorage.setItem('userId', userId);
     }
@@ -177,49 +144,15 @@ function startApp() {
             profileUpdate(userInfo);
             showBars();
         }
+            getThemes()
+        
 
-        if(sessionStorage.username){
-            const baseUrl = "https://baas.kinvey.com/appdata/kid_HJ1-7ACGx/";
-            const kinveyAppAuthHeaders = {
-                'Authorization': "Basic " +
-                btoa(sessionStorage.username + ":" + sessionStorage.pass)
-            };
-            $.ajax({
-                method: "GET",
-                url: baseUrl +"themes",
-                headers: kinveyAppAuthHeaders
-            }).then(function (result) {
-                $('#themes').find(".theme").remove();
-                for(let theme of result){
-                    let div = $('<a href="#">');
-                    div.addClass("theme");
-                    div.text(theme.title);
-                    if(div.text()){
-                        $('#themes').append(div).append($('<br>'));
-                    }
-                }
-            });
-            $.ajax({
-                method: "GET",
-                url: baseUrl + "questions",
-                headers: kinveyAppAuthHeaders,
-            }).then(function (result) {
-                $('#forumQuestions').find(".question").remove();
-                for(let question of result){
-                    let div = $('<div>');
-                    div.addClass("question");
-                    div.text(question.title);
-                    $('#forumQuestions').append(div);
-                }
-            })
-
-        }
+        
 
         
     }
     function x() {
-        console.log(sessionStorage.getItem('userId'));
-        console.log(sessionStorage.getItem('authToken'));
+
 
         $.ajax({
             method: "GET",
@@ -310,5 +243,104 @@ function startApp() {
         $('#three').html('<i class="icon-globe"></i> '+userFacebook);
         $('#comments').text(obj.comment);
         $('#questions').text(obj.question);
+    }
+    function editProfile() {
+                $.ajax({
+                    method: "GET",
+                    url: "https://baas.kinvey.com/user/kid_HJ1-7ACGx/"+sessionStorage.getItem('userId'),
+                    headers: {'Authorization': 'Kinvey '+ sessionStorage.getItem('authToken')},
+                    success: updateProfile,
+                    error: handleAjaxError
+                });
+        }
+
+    function updateProfile(userData) {
+        switch ($('#section').val().toString()) {
+            case 'full_name':
+            {
+                let data = {
+                    "phone_number": userData.phone_number,
+                    "e_mail": userData.e_mail,
+                    "facebook": userData.facebook,
+                    "full_name":$('#changes').val(),
+                    "comment" : userData.comment,
+                    "question" : userData.question
+                };
+                $.ajax({
+                    method: "PUT",
+                    url: "https://baas.kinvey.com/user/kid_HJ1-7ACGx/"+sessionStorage.getItem('userId'),
+                    headers: {'Authorization': 'Kinvey '+ sessionStorage.getItem('authToken')},
+                    data: JSON.stringify(data),
+                    contentType: "application/json",
+                    success: showBars("You have changed your name successfully"),
+                    error: handleAjaxError
+                });
+                showBars()
+            }break;
+            case 'phone_number':
+            {
+                let data = {
+                    "full_name": userData.full_name,
+                    "e_mail": userData.e_mail,
+                    "facebook": userData.facebook,
+                    "phone_number":$('#changes').val(),
+                    "comment" : userData.comment,
+                    "question" : userData.question
+                };
+                $.ajax({
+                    method: "PUT",
+                    url: "https://baas.kinvey.com/user/kid_HJ1-7ACGx/"+sessionStorage.getItem('userId'),
+                    headers: {'Authorization': 'Kinvey '+ sessionStorage.getItem('authToken')},
+                    data: JSON.stringify(data),
+                    contentType: "application/json",
+                    success: showBars("You have changed your name successfully"),
+                    error: handleAjaxError
+                });
+                showBars()
+            }break;
+            case 'e_mail':
+        {
+            let data = {
+                "full_name": userData.full_name,
+                "phone_number": userData.phone_number,
+                "facebook": userData.facebook,
+                "e_mail":$('#changes').val(),
+                "comment" : userData.comment,
+                "question" : userData.question
+            };
+            $.ajax({
+                method: "PUT",
+                url: "https://baas.kinvey.com/user/kid_HJ1-7ACGx/"+sessionStorage.getItem('userId'),
+                headers: {'Authorization': 'Kinvey '+ sessionStorage.getItem('authToken')},
+                data: JSON.stringify(data),
+                contentType: "application/json",
+                success: showBars("You have changed your name successfully"),
+                error: handleAjaxError
+            });
+            showBars()
+        }break;
+        case 'facebook_link':
+        {
+            let data = {
+                "full_name": userData.full_name,
+                "phone_number": userData.phone_number,
+                "e_mail": userData.e_mail,
+                "facebook":$('#changes').val(),
+                "comment" : userData.comment,
+                "question" : userData.question
+            };
+            $.ajax({
+                method: "PUT",
+                url: "https://baas.kinvey.com/user/kid_HJ1-7ACGx/"+sessionStorage.getItem('userId'),
+                headers: {'Authorization': 'Kinvey '+ sessionStorage.getItem('authToken')},
+                data: JSON.stringify(data),
+                contentType: "application/json",
+                success: showBars("You have changed your name successfully"),
+                error: handleAjaxError
+            });
+            showBars()
+        }break;
+        }
+
     }
 }

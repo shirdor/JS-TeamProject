@@ -40,11 +40,12 @@
             <div class="collapse navbar-toggleable-sm" id="navbarResponsive">
                 <ul id="all-bars" class="nav navbar-nav float-md-right">
                     <li class="nav-item">
-                        <a class="nav-link page-scroll" id="themes-bar" href="#forum">Themes</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link page-scroll" id="about-bar" href="#team">About</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll" id="themes-bar" href="#forum">Themes</a>
+                    </li>
+
                     <li class="nav-item">
                         <a class="nav-link page-scroll" id="login-bar" href="#about">Login</a>
                     </li>
@@ -55,9 +56,8 @@
                         <a class="nav-link page-scroll" id="profile-bar" href="#profile">Profile</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link page-scroll" id="logout-bar" href="#page-top">Logout</a>
+                        <a class="logout-nav-link page-scroll" id="logout-bar" href="#page-top">Logout</a>
                     </li>
-
                 </ul>
             </div>
         </div>
@@ -274,10 +274,9 @@
             <div class="row">
                 <div class="col-lg-12">
 
-                            <!--<div class="timeline-image">-->
-                                <!--<img src="img/login-background.jpg" height="624"-->
-                                                                  <!--width="500"/>-->
-                            <!--</div>-->
+                            <!--<div class="timeline-image">
+                                <img src="img/login-background.jpg" height="624" width="500"/>
+                            </div>-->
                 </div>
             </div>
         </div>
@@ -327,6 +326,11 @@
         </div>
     </section>
 
+    <section id="questionsAndComments">
+        <div id="questionsAndCommentsHeader"></div>
+        <div id="questionsAndCommentsHeaderBody" >
+    </section>
+
     <section id="profile">
         <div class="container profile">
             <div class="row">
@@ -367,7 +371,7 @@
                 <div class="well clearfix">
                     <div style="text-align: center">
                         <h1>Edit profile</h1>
-                        <select style="text-align: center">
+                        <select id="section" style="text-align: center">
                             <option value="full_name">Full Name</option>
                             <option value="phone_number">Phone Number</option>
                             <option value="e_mail">E-mail</option>
@@ -599,6 +603,7 @@
     <!-- jQuery -->
     <script src="js/registration.js"></script>
     <script src="js/themes.js"></script>
+    <!--<script src="js/questionsAndComments.js"></script>-->
     <!-- Tether -->
     <script src="vendor/tether/tether.min.js"></script>
 
