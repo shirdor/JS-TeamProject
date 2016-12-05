@@ -539,3 +539,11 @@ h2{
 .logout-nav-link:hover{
     text-decoration: none;
 }
+#warningBox {
+    display: none;
+    background: #ffff00;
+    color: black;
+    text-align: center;
+    padding: 15px;
+    transition: .5s ease-in;
+}
