@@ -151,7 +151,7 @@ function startApp() {
         $('#errorBox').text("Error: " + errorMsg);
         $('#errorBox').show();
         setTimeout(function () {
-            $('#infoBox').fadeOut();
+            $('#errorBox').fadeOut();
         }, 3000);
 
     }
@@ -192,25 +192,5 @@ function startApp() {
 
         }
     }
-    function editIsNeeded() {
-        showInfo("You can change this element only once after you have logged in.");
-        let x=$(this).parent().parent();
-        x.find('div').show();
-        $(x.find('button')).click(function () {
-            if($(x).find('input').attr('name')=='editso2') {
-                $(x).html('<i class="icon-phone"></i> ' + $(x).find("input").val()+' <a><span class="glyphicon glyphicon-pencil"></span></a><div style="display: none"><input type="text" name="editso2"   placeholder="Phone Number" /> <button name="edit" >Edit</button> </div>');
-                $(x).find('a').attr('href',"#profile");
 
-            }
-            else if($(x).find('input').attr('name')=='editso3'){
-                $(x).html('<i class="icon-envelope"></i> ' + $(x).find("input").val()+' <a href="#profile"><span class="glyphicon glyphicon-pencil"></span></a><div style="display: none"><input type="text" name="editso3"   placeholder="E-mail" /> <button name="edit" >Edit</button> </div>');
-            }
-            else if($(x).find('input').attr('name')=='editso4'){
-                $(x).html('<i class="icon-globe"></i> ' + $(x).find("input").val() + ' <a href="#profile"><span class="glyphicon glyphicon-pencil"></span></a><div style="display: none"><input type="text" name="editso4"   placeholder="Facebook" /> <button name="edit" >Edit</button> </div>');
-            }
-            else {
-                $(x).html('<h2>' + $(x).find("input").val() + '</h2> <a href="#profile"><span class="glyphicon glyphicon-pencil"></span></a><div style="display: none"><input type="text" name="editso1"   placeholder="Full Name" /> <button name="edit" >Edit</button> </div>');
-            }
-        })
-    }
 }
