@@ -478,11 +478,12 @@ section h2.section-heading {
     width: 250px;
     box-shadow: 10px 20px 50px rgba(0,0,0,.9);
     background: #000000;
+    text-align: center;
 }
 .theme{
     font-size: 33px;
     text-align: center;
-    margin: 10px;
+    margin: 10%;
     color: royalblue;
 }
 #forumQuestions{
@@ -494,12 +495,10 @@ section h2.section-heading {
     width: 770px;
     box-shadow: 10px 20px 50px rgba(0,0,0,.9);
     background: black;
+    text-align: center;
 }
 .question{
     font-size: 27px;
-    margin-left:10px;
-    margin-top:5px;
-    margin-bottom:5px;
 }
 
 h2{

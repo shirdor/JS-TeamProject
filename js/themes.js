@@ -7,14 +7,14 @@ $('#themes-bar').click(function getThemes() {
     $.ajax({
         method: "GET",
         url: baseUrl +"themes",
-        headers: kinveyAppAuthHeaders,
+        headers: kinveyAppAuthHeaders
     }).then(function (result) {
         $('#themes').find(".theme").remove();
         for(let theme of result){
-            let div = $('<div>');
+            let div = $('<a href="#">');
             div.addClass("theme");
             div.text(theme.title);
-            $('#themes').append(div);
+            $('#themes').append(div).append($('<br>'));
         }
     });
     $.ajax({
