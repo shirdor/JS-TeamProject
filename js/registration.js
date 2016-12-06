@@ -1,5 +1,9 @@
 function startApp() {
-    
+
+    $('#warningBox, #errorBox').click(function () {
+        $(this).fadeOut();
+    });
+
     const baseUrl = 'https://baas.kinvey.com/';
     const appId = 'kid_HJ1-7ACGx';
     const appPass = '8370d0fa322f4ad5b9df1b787b3dad5b';
@@ -65,9 +69,12 @@ function startApp() {
                 arr.push($(el).val());
             }
         }
+        let username = arr[0];
         let pass = arr[1];
         let passConfirmed = arr[2];
-        if (pass == passConfirmed && pass!="" && pass!=undefined && passConfirmed!="" && passConfirmed!=undefined ) {
+        let phoneNumber = arr[4];
+        if (pass == passConfirmed && pass!="" && pass!=undefined && passConfirmed!="" && passConfirmed!=undefined
+            && pass.length > 3 && username != '' && username != undefined && username.length > 3 && phoneNumber == Number) {
             let userData = {
                 "username": arr[0],
                 "password": pass,
@@ -91,7 +98,8 @@ function startApp() {
             showError("You have not filled all boxes. Please reload and try again.");
         }
         else {
-            showError("You have two different passwords. Please reload and try again.");
+            showError("You have something wrong! Please reload and try again.");
+            showWarning('Username and password must be with at least 4 characters, phone number must contains only numbers!');
         }
         function registerSuccess() {
             showInfo('User registration successful.');
@@ -145,11 +153,8 @@ function startApp() {
             showBars();
         }
             getThemes()
-        
     }
     function x() {
-
-
         $.ajax({
             method: "GET",
             url: "https://baas.kinvey.com/user/kid_HJ1-7ACGx/"+sessionStorage.getItem('userId'),
@@ -157,9 +162,7 @@ function startApp() {
             success: profileUpdate,
             error: handleAjaxError
         });
-
     }
-
 
     function logoutClicked() {
         sessionStorage.clear();
@@ -178,14 +181,9 @@ function startApp() {
             errorMsg = response.responseJSON.description;
         showError(errorMsg);
     }
-
     function showError(errorMsg) {
         $('#errorBox').text("Error: " + errorMsg);
         $('#errorBox').show();
-        setTimeout(function () {
-            $('#errorBox').fadeOut();
-        }, 3000);
-
     }
     function showInfo(message) {
         $('#infoBox').text(message);
@@ -194,10 +192,15 @@ function startApp() {
             $('#infoBox').fadeOut();
         }, 3000);
     }
+    function showWarning(warningMessage) {
+        $('#warningBox').text("Warning: " + warningMessage);
+        $('#warningBox').show();
+    }
 
     function showBars() {
         if (sessionStorage.getItem('authToken')) {
             // We have logged in user
+            $('#questionsAndComments').show();
             $('#about').hide();
             $('#contact').hide();
             $('#profile').show();
@@ -211,6 +214,7 @@ function startApp() {
             x();
         } else {
             // No logged in user
+            $('#questionsAndComments').hide();
             $('#about').show();
             $('#contact').show();
             $('#profile').hide();
