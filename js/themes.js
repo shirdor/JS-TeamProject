@@ -79,8 +79,6 @@ function getThemes() {
             //tr.append(div);
             $('#questionsTable').prepend(tr);
         }
-
-
     });
     function getProfile(userId,userAuth) {
         $.ajax({
