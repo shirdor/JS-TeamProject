@@ -236,11 +236,11 @@ function startApp() {
         $('#zero').empty();
         $('#zero').append($('<h2>').text(userName));
         $('#one').empty();
-        $('#one').html('<i class="icon-phone"></i> '+userPhone);
+        $('#one').html('<i class="fa fa-phone-square"></i> '+userPhone);
         $('#two').empty();
-        $('#two').html('<i class="icon-envelope"></i> '+userEmail);
+        $('#two').html('<i class="fa fa-envelope"></i> '+userEmail);
         $('#three').empty();
-        $('#three').html('<i class="icon-globe"></i> '+userFacebook);
+        $('#three').html('<i class="fa fa-facebook-official"></i> '+userFacebook);
         $('#comments').text(obj.comment);
         $('#questions').text(obj.question);
     }

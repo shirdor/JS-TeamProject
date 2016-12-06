@@ -547,3 +547,6 @@ h2{
     padding: 15px;
     transition: .5s ease-in;
 }
+#searchedProfile{
+    background-image:url('../img/profile-background.jpg')
+}
