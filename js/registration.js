@@ -245,7 +245,7 @@ function startApp() {
         $('#questions').text(obj.question);
     }
     function editProfile() {
-                $.ajax({
+        $.ajax({
                     method: "GET",
                     url: "https://baas.kinvey.com/user/kid_HJ1-7ACGx/"+sessionStorage.getItem('userId'),
                     headers: {'Authorization': 'Kinvey '+ sessionStorage.getItem('authToken')},
@@ -341,6 +341,7 @@ function startApp() {
             showBars()
         }break;
         }
+        $('#changes').val('');
 
     }
 }
