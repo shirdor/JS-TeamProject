@@ -97,7 +97,7 @@ function startApp() {
             showInfo('User registration successful.');
             let regUsername = $('.registerUsername').val();
             let regPassword = $('.registerPassword').val();
-            //console.log(regUsername);
+
             loginClicked(regUsername,regPassword);
         }
     }
