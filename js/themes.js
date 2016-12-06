@@ -13,7 +13,7 @@ function getThemes() {
         $('#themes').find(".theme").remove();
         $('#themes').find("br").remove();
         for(let theme of result){
-            let div = $('<a href="#forum">');
+            let div = $('<span>');
             div.addClass("theme");
             div.attr('id', theme.title);
             div.text(theme.title);
@@ -62,8 +62,11 @@ function getThemes() {
             let comments=question.comments;
             let date=question.date;
             idsAndTitles.push({"title":question.title, "id":question._id});
-            let link=$((`<td class="hidden-xs hidden-sm" style="color: #fed136">by <a href="#searchedProfile" id="profileLink" >${question.username}</a></td>\n`))
-                .click(getProfile(question.authorId,question.authorAuthToken));
+            let link=$((`<td class="hidden-xs hidden-sm" style="color: #fed136">by <a href ="#"id="profileLink" >${question.username}</a></td>\n`))
+                .click(function(event){
+                    event.preventDefault();
+                    getProfile(question.authorId,question.authorAuthToken);
+                });
             let tdShit = $('<td>');
             tdShit.append(div);
             tr.append($(`<td class="text-center">${icon}`))
@@ -115,3 +118,97 @@ function getThemes() {
         $('#searchedProfile').hide();
     })
 }
+
+function createTheme() {
+        $.ajax({
+            method: "GET",
+            url: "https://baas.kinvey.com/user/kid_HJ1-7ACGx/"+sessionStorage.getItem('userId'),
+            headers: {'Authorization': 'Kinvey '+ sessionStorage.getItem('authToken')},
+            success: profileUpdate,
+        });
+
+    function profileUpdate(userData) {
+        let num = userData.question + 1;
+        console.log(num)
+        let userName=userData.full_name;
+        let userPhone=userData.phone_number;
+        let userEmail=userData.e_mail;
+        let userFacebook=userData.facebook;
+        $('#zero').empty();
+        $('#zero').append($('<h2>').text(userName));
+        $('#one').empty();
+        $('#one').html('<i class="fa fa-phone-square"></i> '+userPhone);
+        $('#two').empty();
+        $('#two').html('<i class="fa fa-envelope"></i> '+userEmail);
+        $('#three').empty();
+        $('#three').html('<i class="fa fa-facebook-official"></i> '+userFacebook);
+        $('#comments').text(userData.comment);
+        $('#questions').text(num);
+        let data = {
+            "full_name": userData.full_name,
+            "e_mail": userData.e_mail,
+            "facebook": userData.facebook,
+            "phone_number":userData.phone_number,
+            "comment" : userData.comment,
+            "question" : num
+        };
+        $.ajax({
+            method: "PUT",
+            url: "https://baas.kinvey.com/user/kid_HJ1-7ACGx/"+sessionStorage.getItem('userId'),
+            headers: {'Authorization': 'Kinvey '+ sessionStorage.getItem('authToken')},
+            data: JSON.stringify(data),
+            contentType: "application/json",
+            success: showInfo("You have changed your name successfully"),
+        });
+    }
+    const baseUrl = "https://baas.kinvey.com/appdata/kid_HJ1-7ACGx/";
+    const kinveyAppAuthHeaders = {
+        'Authorization': "Basic " +
+        btoa(sessionStorage.username + ":" + sessionStorage.pass)
+    };
+    let idsAndTitles=[];
+    let typeSelect=['58442f0a101d805b6762b239','58442f1c101d805b6762b258','584430bb01bde1035e68b9bf','58459817d23505ed75c2386e','58442f1301bde1035e68a155'];
+
+    let question = $('#text-add-question').val();
+    let chosenTheme = $('#section-add-question option:selected').val();
+    let icon;
+    switch (chosenTheme){
+        case "music":icon=typeSelect[1];break;
+        case "games":icon=typeSelect[4];break;
+        case "school":icon=typeSelect[2];break;
+        case "sport":icon=typeSelect[0];break;
+        case "nature":icon=typeSelect[3];break;
+    }
+    let date = new Date();
+
+    let str = `${date.getDate()}-${1 + date.getMonth()}-${1900 + date.getYear()}`;
+
+    let dataToAdd = {
+        title: question,
+        authorId: sessionStorage.getItem('userId'),
+        themeId: icon,
+        date: str,
+        comments: 0,
+        authorAuthToken: sessionStorage.getItem('authToken'),
+        username: sessionStorage.getItem('username')
+    };
+    $.ajax({
+        method: "POST",
+        url: baseUrl +"questions",
+        headers: {'Authorization': 'Kinvey '+ sessionStorage.getItem('authToken')},
+        data: JSON.stringify(dataToAdd),
+        contentType: "application/json"
+    }).then(function (result) {
+        getThemes();
+    });
+}
+
+function showInfo(message) {
+    $('#infoBox').text(message);
+    $('#infoBox').show();
+    setTimeout(function () {
+        $('#infoBox').fadeOut();
+    }, 3000);
+}
+
+

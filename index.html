@@ -338,14 +338,30 @@
                         </tr>
                         </thead>
                         <tbody>
-
-
                         </tbody>
                     </table>
 
                 </div>
+                </div>
             </div>
             </div>
+        </div>
+        <div class="add-question-forum">
+            <h1 id="header-add-question">Add a question</h1>
+            <form class="form">
+                <input type="text" id="text-add-question" class="name" placeholder="Question?">
+                <div style="text-align: center">
+                    <h1 id="choose-section-name-id">Choose a theme</h1>
+                    <select id="section-add-question" style="text-align: center">
+                        <option value="sport">SPORT</option>
+                        <option value="games">GAMES</option>
+                        <option value="music">MUSIC</option>
+                        <option value="school">SCHOOL</option>
+                        <option value="nature">NATURE</option>
+                    </select>
+                </div>
+                <input type="button" class="submit" value="Add" onclick="createTheme()">
+            </form>
         </div>
     </section>
 
@@ -353,7 +369,7 @@
         <div id="questionsAndCommentsHeader"></div>
         <div id="questionsAndCommentsHeaderBody" />
     </section>
-
+    <a name="bottom"></a>
     <section id="profile">
         <div class="container profile">
             <div class="row">
