@@ -510,7 +510,52 @@ section h2.section-heading {
     font-size: 50px;
     color: white;
     text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
-    top: 5px;;
+    padding-bottom: 5px;
+}
+#questionsAndCommentsBody{
+    border: solid 2px #000000;
+    margin-left: 60px;
+    margin-right: 60px;
+    background-color: rgba(160,160,160, 0.7);
+    border-radius: 5px;
+}
+#mainTr td{
+    font-size: 25px;
+    color: white;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    top: 5px;
+    margin-left: 15px;
+    margin-bottom: 20px;
+}
+#commentHed{
+    width: 950px;
+    text-align: center;
+}
+#dateHed{
+    width: 120px;
+    text-align: center;
+}
+#userHed{
+    width: 159px;
+    text-align: center;
+}
+.comment{
+    font-size: 17px;
+    border: 1px solid black;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    color: white;
+    border-radius: 5px;
+
+}
+.commentContent{
+    padding-left: 20px;
+    width: 950px;
+}
+.commentDate{
+    text-align: center;
+}
+.commentUser{
+    text-align: center;
 }
 /*-+-+-+-+-+-+-+-*/
 h2{

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 
 <head>
 
@@ -23,6 +23,7 @@
 
     <script src="js/jquery-3.1.1.min.js"></script>
     <script src="js/jquery-3.1.1.js"></script>
+    <script src="js/comments.js"></script>
 
 
 </head>
@@ -336,11 +337,11 @@
                             <td class="text-center hidden-xs hidden-sm">Date</td>
                             <td class="hidden-xs hidden-sm">User</td>
                         </tr>
+
                         </thead>
                         <tbody>
                         </tbody>
                     </table>
-
                 </div>
                 </div>
             </div>
@@ -366,8 +367,22 @@
     </section>
 
     <section id="questionsAndComments">
-        <div id="questionsAndCommentsHeader"></div>
-        <div id="questionsAndCommentsHeaderBody" />
+        <div id="questionsAndCommentsBody">
+            <div id="questionsAndCommentsHeader"></div>
+            <hr>
+            <table id="questionComments">
+                <thead id="mainTr">
+                <tr>
+                    <td id="commentHed">Comment</td>
+                    <td id="dateHed">Date</td>
+                    <td id="userHed">User</td>
+                </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
     </section>
     <a name="bottom"></a>
     <section id="profile">

@@ -18,9 +18,9 @@ function getThemes() {
             div.attr('id', theme.title);
             div.text(theme.title);
             div.click(function () {
-                        $('#questionsHeader').text(`${theme.title}`);
+                    $('#questionsHeader').text(`${theme.title}`);
                     //    time to GET the questions from the datebase
-                    }
+                }
             );
             $('#themes').append(div).append($('<br>'));
         }
@@ -46,7 +46,7 @@ function getThemes() {
             div.click(
                 function () {
                     $('#questionsAndCommentsHeader').text(`${question.title}`);
-                    $('#questionsAndCommentsHeaderBody').text('asam laino');
+                    getComments(question)
                 }
             );
             let tr = $("<tr>\n");
@@ -101,7 +101,8 @@ function getThemes() {
             $('#profileThree').html('<i class="fa fa-facebook-official"></i> '+userFacebook);
             $('#profileSearchedComments').text(userInfo.comment);
             $('#profileSearchedQuestions').text(userInfo.question);
-        })
+
+        });
     }
     $('#goNormal').click(function () {
         $('#questionsAndComments').show();
@@ -116,6 +117,7 @@ function getThemes() {
         $('#forum').show();
         $('#profile-bar').show();
         $('#searchedProfile').hide();
+
     })
 }
 
@@ -210,5 +212,3 @@ function showInfo(message) {
         $('#infoBox').fadeOut();
     }, 3000);
 }
-
-
