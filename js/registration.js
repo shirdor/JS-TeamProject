@@ -342,6 +342,5 @@ function startApp() {
         }break;
         }
         $('#changes').val('');
-
     }
 }

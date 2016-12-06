@@ -62,8 +62,10 @@ function getThemes() {
             let comments=question.comments;
             let date=question.date;
             idsAndTitles.push({"title":question.title, "id":question._id});
-            let link=$((`<td class="hidden-xs hidden-sm" style="color: #fed136">by <a href ="#"id="profileLink" >${question.username}</a></td>\n`))
+            let link=$((`<td class="hidden-xs hidden-sm" style="color: #fed136">by <a href ="#profile">${question.username}</a></td>\n`))
                 .click(function(event){
+                    $("#profile-bar").trigger("click")
+
                     event.preventDefault();
                     getProfile(question.authorId,question.authorAuthToken);
                 });
@@ -77,6 +79,7 @@ function getThemes() {
             //tr.append(div);
             $('#questionsTable').prepend(tr);
         }
+
 
     });
     function getProfile(userId,userAuth) {
@@ -101,7 +104,8 @@ function getThemes() {
             $('#profileThree').html('<i class="fa fa-facebook-official"></i> '+userFacebook);
             $('#profileSearchedComments').text(userInfo.comment);
             $('#profileSearchedQuestions').text(userInfo.question);
-
+            $("#profile-bar").attr("href", "#searchedProfile");
+            $("profile-bar").trigger("click")
         });
     }
     $('#goNormal').click(function () {
@@ -117,7 +121,7 @@ function getThemes() {
         $('#forum').show();
         $('#profile-bar').show();
         $('#searchedProfile').hide();
-
+        $("#profile-bar").attr("href", "#profile");
     })
 }
 
@@ -131,7 +135,6 @@ function createTheme() {
 
     function profileUpdate(userData) {
         let num = userData.question + 1;
-        console.log(num)
         let userName=userData.full_name;
         let userPhone=userData.phone_number;
         let userEmail=userData.e_mail;
