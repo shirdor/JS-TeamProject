@@ -58,6 +58,7 @@ function getThemes() {
                 case typeSelect[0]:icon=typeOfTheme.sport;break;
                 case typeSelect[3]:icon=typeOfTheme.nature;break;
             }
+
             let comments=question.comments;
             let date=question.date;
             idsAndTitles.push({"title":question.title, "id":question._id});
@@ -73,6 +74,7 @@ function getThemes() {
             //tr.append(div);
             $('#questionsTable').prepend(tr);
         }
+
     });
     function getProfile(userId,userAuth) {
         $.ajax({
@@ -96,6 +98,7 @@ function getThemes() {
             $('#profileThree').html('<i class="fa fa-facebook-official"></i> '+userFacebook);
             $('#profileSearchedComments').text(userInfo.comment);
             $('#profileSearchedQuestions').text(userInfo.question);
+
         });
     }
     $('#goNormal').click(function () {
@@ -111,5 +114,7 @@ function getThemes() {
         $('#forum').show();
         $('#profile-bar').show();
         $('#searchedProfile').hide();
-    });
+
+    })
 }
+

@@ -9,31 +9,28 @@ function getComments(question) {
         url: baseUrl + "comments",
         headers: kinveyAppAuthHeaders,
     }).then(function (res) {
-        for (let c of res){
-            if(c.questionId == question._id){
-                let tr = $('tr');
-                let tdComment = $('td');
-                tdComment.text(c.content);
-                tdComment.addClass('commentContent');
+            $('.comment').remove();
+            for (let c of res){
+                if(c.questionId == question._id) {
+                    let tr = $('<tr>');
+                    let tdComment = $('<td>');
+                    tdComment.text(c.content.content);
+                    tdComment.addClass('commentContent');
 
-                let tdDate = $('td');
-                tdDate.text(c.date);
-                tdDate.addClass('commentDate');
+                    let tdDate = $('<td>');
+                    tdDate.text(c.date);
+                    tdDate.addClass('commentDate');
 
-                let tdUser = $('td');
-                $.get("https://baas.kinvey.com/user/kid_HJ1-7ACGx/" + c.authorId)
-                    .then(function (user) {
-                        tdUser.text(user.username)
-                });
+                    let tdUser = $('<td>');
+                    tdUser.text(c.username);
+                    tdUser.addClass("commentUser");
 
-                tdUser.addClass("commentUser");
-                tr.append(tdComment);
-                tr.append(tdDate);
-                tr.append(tdUser);
-                tr.addClass('comment');
-                $('#questionComments').append(tr);
-
+                    tr.append(tdComment);
+                    tr.append(tdDate);
+                    tr.append(tdUser);
+                    tr.addClass('comment');
+                    $('#questionComments').append(tr);
+                }
             }
-        }
-    })
+        })
 }

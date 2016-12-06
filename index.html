@@ -326,7 +326,7 @@
                 <div id="questionsHeader"><strong>Latest questions</strong></div>
                 <div class="container" style="margin-top: 35px">
                     <table class="table forum table-striped" id="questionsTable">
-                        <tbody>
+                        <thead>
                         <tr>
                             <td class="text-center hidden-xs hidden-sm">Theme</td>
 
@@ -337,6 +337,9 @@
                             <td class="text-center hidden-xs hidden-sm">Date</td>
                             <td class="hidden-xs hidden-sm">User</td>
                         </tr>
+
+                        </thead>
+                        <tbody>
 
                         </tbody>
                     </table>
@@ -352,12 +355,16 @@
             <div id="questionsAndCommentsHeader"></div>
             <hr>
             <table id="questionComments">
-                <tr id="mainTr">
+                <thead id="mainTr">
+                <tr>
                     <td id="commentHed">Comment</td>
                     <td id="dateHed">Date</td>
                     <td id="userHed">User</td>
                 </tr>
+                </thead>
+                <tbody>
 
+                </tbody>
             </table>
         </div>
     </section>
@@ -376,9 +383,9 @@
                                     <h2></h2>
                                 </div>
                                 <ul class="unstyled">
-                                    <li id="one"><i class="icon-phone"></i></li>
-                                    <li id="two"><i class="icon-envelope"></i></li>
-                                    <li id="three"><i class="icon-globe"></i></li>
+                                    <li id="one"><i class="fa fa-phone-square"></i></li>
+                                    <li id="two"><i class="fa fa-envelope"></i></li>
+                                    <li id="three"><i class="fa fa-facebook-official"></i></i></li>
 
                                 </ul>
                             </div>
@@ -418,8 +425,48 @@
                 </div>
             </div>
         </div>
+    </section>
+    <section id="searchedProfile" style="display: none">
+        <div class="container profile">
+            <div class="row">
+                <div class="span12">
+                    <div class="well well-small clearfix">
+                        <div class="row-fluid">
+                            <div class="span2">
+                                <img src="img/profile%20picture.png" width="125px" height="125px" class="img-polaroid"/>
+                            </div>
+                            <div class="span4">
+                                <div id="profileZero">
+                                    <h2></h2>
+                                </div>
+                                <ul class="unstyled">
+                                    <li id="profileOne"><i class="fa fa-phone-square"></i></li>
+                                    <li id="profileTwo"><i class="fa fa-envelope"></i></li>
+                                    <li id="profileThree"><i class="fa fa-facebook-official"></i></i></li>
+
+                                </ul>
+                            </div>
+                            <ul class="inline stats">
+                                <li>
+                                    <span id="profileSearchedQuestions">0</span>
+                                    <h5>Questions</h5>
+                                </li>
+                                <li>
+                                    <span id="profileSearchedComments">0</span>
+                                    <h5>Comments</h5>
+                                </li>
+
+                            </ul>
+                        </div>
+                        <button type="button" id="goNormal">
+                            Back
+                        </button>
+                    </div>
+                </div>
+
+            </div>
         </div>
-        </div>
+
     </section>
     <footer>
         <div class="container">
