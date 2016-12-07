@@ -211,10 +211,12 @@ function startApp() {
             $("#logout-bar").show();
             $('#forum').show();
             $('#profile-bar').show();
+            $('#searchedProfile').hide();
             x();
         } else {
             // No logged in user
             $('#questionsAndComments').hide();
+            $('#searchedProfile').hide();
             $('#about').show();
             $('#contact').show();
             $('#profile').hide();

@@ -46,6 +46,8 @@ function getThemes() {
             div.click(
                 function () {
                     $('#questionsAndCommentsHeader').text(`${question.title}`);
+                    $('#questionsAndCommentsBody').show();
+                    $('#commentBox').show();
                     getComments(question)
                 }
             );
@@ -73,7 +75,6 @@ function getThemes() {
             tdShit.append(div);
             tr.append($(`<td class="text-center">${icon}`))
                 .append(tdShit)
-                .append(`<td class="text-center hidden-xs hidden-sm" style="color: #fed136">${comments}</a></td>\n`)
                 .append(`<td class="text-center hidden-xs hidden-sm" style="color: #fed136">${date}</a></td>\n`)
                 .append(link);
             //tr.append(div);
@@ -103,7 +104,6 @@ function getThemes() {
             $('#profileSearchedComments').text(userInfo.comment);
             $('#profileSearchedQuestions').text(userInfo.question);
             $("#profile-bar").attr("href", "#searchedProfile");
-            $("profile-bar").trigger("click")
         });
     }
     $('#goNormal').click(function () {
@@ -161,7 +161,7 @@ function createTheme() {
             headers: {'Authorization': 'Kinvey '+ sessionStorage.getItem('authToken')},
             data: JSON.stringify(data),
             contentType: "application/json",
-            success: showInfo("You have changed your name successfully"),
+            success: showInfo("You have asked question successfully")
         });
     }
     const baseUrl = "https://baas.kinvey.com/appdata/kid_HJ1-7ACGx/";

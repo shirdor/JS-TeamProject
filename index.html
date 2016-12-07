@@ -325,7 +325,7 @@
             <div id="forumQuestions">
                 <div id="questionsHeader"><strong>Latest questions</strong></div>
                 <div class="container" style="margin-top: 35px">
-                    <table class="table forum table-striped" id="questionsTable">
+                    <table class="table forum table-striped" id="questionsTable" >
                         <thead>
                         <tr>
                             <td class="text-center hidden-xs hidden-sm">Theme</td>
@@ -333,7 +333,6 @@
                             <td>
                                 <h4>Questions</h4>
                             </td>
-                            <td class="text-center hidden-xs hidden-sm">Comments</td>
                             <td class="text-center hidden-xs hidden-sm">Date</td>
                             <td class="hidden-xs hidden-sm">User</td>
                         </tr>
@@ -367,13 +366,13 @@
     </section>
 
     <section id="questionsAndComments">
-        <div id="questionsAndCommentsBody">
+        <div id="questionsAndCommentsBody" style="display: none">
             <div id="questionsAndCommentsHeader"></div>
             <hr>
-            <table id="questionComments">
+            <table id="questionComments" >
                 <thead id="mainTr">
                 <tr>
-                    <td id="commentHed">Comment</td>
+                    <td id="commentHed" >Comment</td>
                     <td id="dateHed">Date</td>
                     <td id="userHed">User</td>
                 </tr>
@@ -382,6 +381,20 @@
 
                 </tbody>
             </table>
+            </div>
+        <div class="container" id="commentBox" style="display: none">
+
+
+            <div class="row">
+
+                <div class="status-upload">
+                    <form>
+                        <textarea id="comment" placeholder="Comment here" ></textarea>
+
+                        <button type="button" id="share" class="btn btn-success green"><i class="fa fa-share"></i> Share</button>
+                    </form>
+                </div><!-- Status Upload  -->
+            </div>
         </div>
     </section>
     <section id="profile">
